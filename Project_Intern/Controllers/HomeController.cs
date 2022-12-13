@@ -24,6 +24,10 @@ namespace Project_Intern.Controllers
         {
             return View();
         }
+        public ActionResult SingleNews()
+        {
+            return View();
+        }
 
     }
 }

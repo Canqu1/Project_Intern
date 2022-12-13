@@ -13,5 +13,13 @@ namespace Project_Intern.Controllers
         {
             return View();
         }
+        public ActionResult Checkout()
+        {
+            return View();
+        }
+        public ActionResult Thanks()
+        {
+            return View();
+        }
     }
 }

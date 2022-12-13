@@ -13,5 +13,9 @@ namespace Project_Intern.Controllers
         {
             return View();
         }
+        public ActionResult Forgot()
+        {
+            return View();
+        }
     }
 }
