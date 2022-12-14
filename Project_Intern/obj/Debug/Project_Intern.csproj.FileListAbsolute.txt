@@ -154,3 +154,7 @@ D:\FPTS\Project_Intern\Project_Intern\bin\EntityFramework.dll
 D:\FPTS\Project_Intern\Project_Intern\bin\EntityFramework.SqlServer.dll
 D:\FPTS\Project_Intern\Project_Intern\bin\EntityFramework.xml
 D:\FPTS\Project_Intern\Project_Intern\bin\EntityFramework.SqlServer.xml
+D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.dll
+D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.Mvc.dll
+D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.xml
+D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.Mvc.xml
