@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLTE.cshtml";
+}
+
+<!-- /.card -->
+
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Thông tin sản phẩm</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table id="product" class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Tên</th>
+                    <th>Số lượng</th>
+                    <th>Phân loại</th>
+                    <th>Ngày xuất kho</th>
+                    <th>Ngày hết hạn</th>
+                    <th>Thành tiền($)</th>
+                    <th>Miêu tả</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
+<!-- /.card -->
+@section Css{
+    <link rel="stylesheet" href="~/Areas/Admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Areas/Admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="~/Areas/Admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+}
+@section Js{
+    <script src="~/Areas/Admin/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/Areas/Admin/plugins/jszip/jszip.min.js"></script>
+    <script src="~/Areas/Admin/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="~/Areas/Admin/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="~/Areas/Admin/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script>
+        $(function () {
+            getProduct();
+            function getProduct() {
+                $.get("/Admin/Product/getProduct",
+                    {},
+                    function (items) {
+                        console.log(items);
+                        for (let i = 0; i < items.length; i++) {
+                            $("#product tbody").append("<tr>" +
+                                "<td>" + (i + 1) + "</td>" +
+                                "<td>" + items[i][1] + "</td>" +
+                                "<td>" + items[i][2] + "</td>" +
+                                "<td>" + items[i][3] + "</td>" +
+                                "<td>" + items[i][4] + "</td>" +
+                                "<td>" + items[i][5] + "</td>" +
+                                "<td>" + items[i][6] + "</td>" +
+                                "<td>" + items[i][7] + "</td>" +
+                                "<td class='project-actions text-right'><a data-id='" + items[i][0]+ "' class='btn btn-info btn-sm editProduct' href='#'> <i class='fas fa-pencil-alt'>  </i>    </a> <a data-id='" + items[i][0]+ "' class='btn btn-danger btn-sm removeProduct' href='#'>  <i class='fas fa-trash'>     </i>      </a></td>" +
+                                "</tr > ");
+                        }
+                        $("#product").DataTable({
+                            "responsive": true, "lengthChange": false, "autoWidth": false,
+                            "buttons": [ "excel", "pdf", "print",  {
+                                text: 'Thêm',
+                                attr: {class: 'btn btn-success'},
+                                action: function (e, dt, node, config) {
+                                    window.location= "/Admin/Product/Add"
+                                }
+                            }]
+                        }).buttons().container().appendTo('#product_wrapper .col-md-6:eq(0)');
+                    });
+            }
+            $(document).on("click", "#product .editProduct", function (e) {
+                e.preventDefault();
+                var id = $(this).data("id");
+                window.location = "/Admin/Product/Edit/" + id;
+            })
+            $(document).on("click", "#product .removeProduct", function (e) {
+                e.preventDefault();
+                if (confirm("Bạn Muốn Xóa?")) {
+                var id = $(this).data("id");
+                    window.location = "/Admin/Product/Remove/" + id;
+                }
+                
+            })
+        });
+    </script>
+
+}

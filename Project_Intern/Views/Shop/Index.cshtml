@@ -63,7 +63,7 @@
             <div class="col-lg-12 text-center">     
                 <div class="pagination-wrap align-items-center ">
                     Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)/@Model.PageCount               
-                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))                                     
+                        @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))                 
                 </div>
             </div>
         </div>

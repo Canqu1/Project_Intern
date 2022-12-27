@@ -145,7 +145,6 @@ D:\FPTS\Project_Intern\Project_Intern\bin\System.Web.WebPages.Razor.xml
 D:\FPTS\Project_Intern\Project_Intern\bin\Newtonsoft.Json.xml
 D:\FPTS\Project_Intern\Project_Intern\bin\Antlr3.Runtime.pdb
 D:\FPTS\Project_Intern\Project_Intern\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-D:\FPTS\Project_Intern\Project_Intern\obj\Debug\Project_Intern.csprojAssemblyReference.cache
 D:\FPTS\Project_Intern\Project_Intern\obj\Debug\Project_Intern.csproj.CoreCompileInputs.cache
 D:\FPTS\Project_Intern\Project_Intern\obj\Debug\Project_Intern.csproj.CopyComplete
 D:\FPTS\Project_Intern\Project_Intern\obj\Debug\Project_Intern.dll
@@ -158,3 +157,4 @@ D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.dll
 D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.Mvc.dll
 D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.xml
 D:\FPTS\Project_Intern\Project_Intern\bin\PagedList.Mvc.xml
+D:\FPTS\Project_Intern\Project_Intern\obj\Debug\Project_Intern.csprojAssemblyReference.cache

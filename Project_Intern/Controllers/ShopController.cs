@@ -11,7 +11,7 @@ namespace Project_Intern.Controllers
 {
     public class ShopController : Controller
     {
-        FruitShopEntities db = new FruitShopEntities();
+        FruitShopEntities2 db = new FruitShopEntities2();
         // GET: Shop
         public ActionResult Index(int ? page)
         {
@@ -46,10 +46,23 @@ namespace Project_Intern.Controllers
         }
         public ActionResult Product( int Page=1)
         {
-            int IrtemsPerPage;
-            List<products> product = db.products.ToList();
+            var product = db.products.ToList();
             ViewBag.Product = product;
+            var category = db.categories.ToList();
+            ViewBag.Category = category;
             return View();
+        }
+        [HttpPost]
+        public ActionResult Product(string cateid)
+        {
+            var products = db.products.ToList();
+            if (cateid != "0")
+            {
+                products = db.products
+                    .Where(p => p.category_id == Int32.Parse(cateid))
+                    .ToList();
+            }
+            return View(products);
         }
     }
 }
